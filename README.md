@@ -6,4 +6,4 @@ Lightning-enabled fiat on and off-ramp service. KISI allows users to go from dig
 
 This repository contains the code for the frontend user interface which is a progressive web application built with VueJS. 
 
-Try it out at <a href="https://kisi.app/">kisi</a>.
+Test app coming soon <a href="https://kisi.app/">kisi</a>.
