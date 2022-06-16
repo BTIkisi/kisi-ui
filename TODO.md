@@ -1,0 +1,212 @@
+- confidential nc liquid addresses
+- public page to send payments / issue assets without having any funds, prompt for deposit after the fact to cover amount/fees
+- separate liquid and bitcoin nc wallets
+- max button to send all
+- address labelling
+- coin control
+- multiple output transactions
+- fix rounding errors in fiat amount when receiving large payments
+- let client specify payment rate rather than server so it doesn't change
+- connect to remote lightning node
+- show geographically nearby/online contacts
+- ability to send invoices to usernames if they've paid you in the past
+- show recently used addresses/contacts for prefilling
+- share voucher to email/sms
+- contextual topbar menus with back button on left, actions on right
+- special modal or icon for socket connection error
+- swipe navigation
+- delete button shrink in mobile view under your proposals
+- move all color styles to vuetify theme instead of hardcoding
+- make lnurl support modular/opt-in
+- make asset swaps modular/opt-in
+- use tdex sdk instead of swap tool
+- display permalink urls for all lnurls
+- only show proposals/orders that are currently funded
+- order expiry
+- swap form on swaps page, 'place order'
+- buys/sells separated. auto-select box to set currency pairs/filters.
+- instant exchange, server market maker form at top with option to take immediate custodial deposit or generate proposal for atomic swap and finalize acceptance
+- check if orders with same or better rate exist and offer to partially fill or automatically partially fill
+- non-custodial PK/HD/watchonly bitcoin/liquid accounts
+- rbf and cpfp fee bumping support
+- give logged in users the option to provide an external swap acceptance
+- set better asset swap defaults
+- display domain when selecting asset. discourage 'BTC' clones
+- disallow swapping same asset
+- liquiditi/sideshift like exchange page for converting between lnbtc/lbtc/tether/lcad 
+- organize swaps page with filters/orderbooks for currency pairs
+- generate invoices from url params
+  - coinos.io/<userid|username>/2000sat
+  - coinos.io/<userid|username>/10usd
+  - coinos.io/lightning/<userid|username>/10
+  - coinos.io/liquid/<userid|username>/10<assetid>
+- docker image, (fork/expand nigiri?), make self-hosting easy, bitcloud automated deploy paid with lightning from within coinos. inception
+- bitcoinapp.ca simple mode and theme redesign
+- payment from field
+- PoS/readonly mode login with separate JWT token
+- show all payments by default in SAT/BTC view, other assets set a filter. toggleable through menu.
+- lightweight login/frontpage without app.js but prefetch it
+- psbt tx export with no fee output for liquid.taxi
+- unsaved settings values get overridden on pin set or when transaction confirms or any user update comes in
+- require pin on send
+- require current password and pin on settings change
+- use coinos names in payment history and sent/received dialog
+- use payment component from payments page on sent/received pages
+- refactor vue store into multiple stores with lazy loaded libs
+
+long term
+- payjoin
+- pwa register protocol handler when it's possible, https://bugs.chromium.org/p/chromium/issues/detail?id=1019239
+- p2p nfc when possible https://github.com/w3c/web-nfc/issues/529
+- paynyms, bip47 https://paynym.is/about
+- coinbin import utxos feature
+- coinbin bech32 address support (scanning private key brings up legacy address)
+- allow tx create/sign while offline https://www.monterail.com/blog/pwa-working-offline
+- import utxos from file/text
+- coin selection
+- bwt server for hd wallet indexing
+- transaction batching. wait for other users to coinjoin.
+- tx queuing, send to https://chainmarket.etleneum.com/
+- rsk r-btc support
+- omnilayer support
+- auto-pull threshold for contacts, skip payment confirmation for trusted users up to certain amount
+- switch to rxjs data store
+- donation link, paywalled easter eggs, premium content
+- invoice expiry
+- hw wallet auth and tx signing
+- biometric auth
+- social features
+  - show users online, allow approved merchants to push invoices to them
+  - show users you've transacted with at the top
+  - allow pushing between anyone you've transacted with
+- configurable developer fees
+- exchange rate percent modifier
+- payment filtering and better paging
+- more stats, total user accounts, number/volume of payments
+- persist stats to db every 5 minutes
+- stats time series
+- better auditing, reconcile total node balances and transactions with db payments and account balances. flag discrepancies for manual approval.
+- create account on the fly from URL or localStorage uuid token
+- send to email/phone/social media
+- sms api
+- channel/wallet rebalancing, connect to exchange for auto topup
+- atomic swap network, communicate/aggregrate proposals from multiple coinos instances
+- multisig accounts, tapscript
+- show unconfirmed outgoing payments
+
+abandoned
+- accept keysend payments with memo to indicate recipient account
+- allow disabling liquid/bitcoin/lnurl from settings
+- autoredeem option for voucher
+- send lnd self payments instead of running 2 nodes (causes routing fees)
+- build elementsjs-lib
+- svelte frontend
+- sqlite backend // kind of supported by sequelize already
+- sia storage front end, skynet ui
+
+done
+
+- welcome screen
+- payments, deposit button on homepage
+- multiple fiat currencies
+- more server side logging
+- migrate hosting
+- new on-chain addresses on receive
+- customize on-chain fees
+- fix link to liquid explorer
+- fix liquid transactions not confirming
+- add tip function
+- new demo video
+- set pin function
+- update installation docs
+- liquid LBTC payments
+- printer-friendly invoices
+- db backups
+- separate invoices from payments in db
+- better docs on about page
+- currency select box is janky when typing or clicking out
+- small amounts have scientific notation when viewing code
+- scroll to password and username fields
+- fee rate slider
+- show fiat amounts on send page for amount and fee
+- update elements to get 0.1 sat fees and support decimals in fee rate dialog
+- support toggling between SAT and BTC units
+- show wallet balances, user count on about page
+- show btc on request page if selected
+- liquid tx not detected (had to install zmq-devel and compile elements with zmq support)
+- set fee rate and slider to the default estimate 
+- support legacy receiving addresses and segwit wrapped p2sh
+- show fixed payment rate on sent page not fluctuating global rate
+- liquid assets payments
+- c-lightning backend
+- show ln payment proof and hash
+- respect asset precision
+- assets list unconfirmed amount formatting
+- move network logo to main payment header
+- qr generate move to send page, not camera scan
+- don't generate qr on typing into to field, just display a button to click
+- qr generate button doesn't work after one use unless you navigate away and back
+- spacing between asset and balance columns on assets list 
+- upload db backups to sia
+- host coinos and nodes as tor services
+- zero-amount lightning invoices for sending arbitrary amounts
+- detect internal payments and prompt to avoid on-chain or lightning
+- multipart payments
+- prevent asset drawer from opening on select
+- fix unit in tip dialog when using assets
+- better asset list wrapping on small mobile
+- make all nodes/payment methods optional depending on if config settings exist
+- get rid of gsap and manually tween
+- print-friendly sent payment receipts
+- numpad won't allow 1 for JPY since SAT value rounds to 0
+- lightning static channel backups
+- lnurl auth
+- track historical user addresses from invoices, periodically check wallet for missed transactions
+- remove expired subscriptions
+- create new user on the fly with lnurl auth
+- allow channel requests from unauthorized users
+- lnurl withdraw pay to voucher button
+- lnurl support for pay, withdraw, auth
+- persist fiat toggle state
+- make notification subscription opt-in on settings page
+- nfc tap
+- frontend detect/warn about socket disconnection, attemptreconnect after timeout
+- payments csv export
+- add notes to invoices and payments
+- push notifications
+- liquid issue new assets
+- open channel and peering requests, maybe for a fee
+- camera scan not working
+- domain name of asset issuer
+- register on liquid asset registry function
+- move captcha to new user registration form
+- private key scanning
+- record/show fee of received payments
+- top level error handler in server to catch unexpected errors
+- nginx caching
+- public username url for push payments/donations
+- materialdesignicons.min.css loads slow from cdn
+- css?family=Roboto too
+- coinos.png to webp
+- drop material icon font for svg icons
+- cache /assets
+- only send usd rate, not all rates, compute rates client side and only for selected currencies
+- stop loading all info and node stats every page load
+- periodically check for missed payments
+- allow jwt token at the end of any url like /asset
+- allow specifying address type without cycling through invoices
+- show derivation path of addresses
+- allow multiple non-custodial accounts of same asset
+- some way to distinguish custodial/non-custodial and toggle between them
+- poll lnd node for payment before debiting db account during lnurl withdraw
+- fixed position snackbar
+- errors in snackbar
+- textarea for seed
+- replace payments with wallets link in bottom nav, send and receive at top of each payments page
+- replace settings with exchange in bottom nav
+- jwt login url
+- remove discord link, move tor link to bottom
+- update about text and readme's
+- instant account, no registration, captcha/challenge prompt after some threshold per hour or day
+- disable create new user button when username is entered
+- make generate address button more clear, allow specifying type
