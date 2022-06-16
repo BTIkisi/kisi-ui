@@ -1,0 +1,18 @@
+export default [
+'/',
+'/asset',
+'/decrypt',
+'/home',
+'/logout',
+'/payments',
+'/receive',
+'/scan',
+'/send',
+'/settings',
+'/sweep',
+'/text',
+'/pay',
+'/propose',
+'/wallets',
+'/withdraw',
+];
